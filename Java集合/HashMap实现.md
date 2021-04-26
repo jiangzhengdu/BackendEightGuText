@@ -4,9 +4,9 @@
 
 1. 当HashMap中元素总个数达到阈值时就会扩容。注意是元素总个数，而不是数组占用个数。
 
-// 数组扩容阈值,即：HashMap数组总容量 * 负载因子
+数组扩容阈值,即：HashMap数组总容量 * 负载因子
 int threshold
-// 如果元素个数大于阈值，扩充数组。
+如果元素个数大于阈值，扩充数组。
 if (++size > threshold)  
     resize();
 
@@ -33,7 +33,7 @@ else if (p instanceof HashMap.TreeNode)
 
  ③ 如果首节点是链表，将键值对添加到链表。添加之后会判断链表长度是否到达TREEIFY_THRESHOLD - 1这个阈值，“尝试”将链表转换成红黑树。
 
-	
+
 // p.next == null，到达链表末尾，添加新节点，如果长度足够，转换成树结构。 
 if ((e = p.next) == null) { 
     p.next = newNode(hash, key, value, null);  
@@ -44,15 +44,15 @@ if ((e = p.next) == null) {
 而关键在于这个treeifyBin()方法中，如果 
 
 
-	
+​	
 // 把链表转换为红黑色树
 final void treeifyBin(Node<K,V>[] tab, int hash) { 
-    int n, index; Node<K,V> e;  // 如果当前数组容量太小（小于64），放弃转换，扩充数组。  
-    if (tab == null || (n = tab.length) < MIN_TREEIFY_CAPACITY) {  
-        resize();  
-    } else if ((e = tab[index = (n - 1) & hash]) != null) {  
-        // 将链表转成红黑树... 
-    } 
+​    int n, index; Node<K,V> e;  // 如果当前数组容量太小（小于64），放弃转换，扩充数组。  
+​    if (tab == null || (n = tab.length) < MIN_TREEIFY_CAPACITY) {  
+​        resize();  
+​    } else if ((e = tab[index = (n - 1) & hash]) != null) {  
+​        // 将链表转成红黑树... 
+​    } 
 }
 
 1、每个节点要么是红色，要么是黑色，但根节点永远是黑色的；
