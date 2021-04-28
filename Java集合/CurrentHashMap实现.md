@@ -1,3 +1,6 @@
+CurrentHashmap的实现
+===
+
 可以看出CocurrentHashMap对比HashMap在HashEnty前面加了Segment段，因为HashMap不是线程安全的，
 并且在多线程同时写入的情况下会导致死循环，
 所以先多线程的环境下，一般不实用HashMap，而使用CocurrentHashMap，

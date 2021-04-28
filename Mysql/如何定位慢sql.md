@@ -41,5 +41,3 @@ using filesort  表示mysql会使用一个外部索引排序 而不是从表里�
 
 3.修改sql或者尽量让sql走索引
 ---
-
-
