@@ -22,3 +22,6 @@ long[8]  eight bytes  -2^63 ~ 2^63-1
 
 
 不要对运算结果是小数进行判断   
+
+char 就是数字
+    System.out.println('a' + 100);  出来是字符
