@@ -116,5 +116,17 @@ public static void main(Sting[] argv){
 
 >删除线使用两个~包起来  
 ~~因该删除~~
+
+## **10. Table**
+
+|name| age | sex |
+|:---:|:---:|:---:|
+|du | 20 | male|
+|yun| 20 | female|
+
+>分割线后面的冒号表示对齐方式，写在左边表示左对齐，右边为右对齐，两边都写表示居中
+
+### 参考资料
+
 > [参考资料1](https://www.markdowntutorial.com/lesson/6/)  
 [参考资料2](https://www.cnblogs.com/liugang-vip/p/6337580.html)
