@@ -6,4 +6,3 @@ CurrentHashmap的实现
 所以先多线程的环境下，一般不实用HashMap，而使用CocurrentHashMap，
 CocurrentHashMap通过分段锁的机制，
 实现了多线程写入时的线程安全，也提高了多线程情况下的访问效率。
-
