@@ -48,9 +48,15 @@
 
 ## **4. Italics and Bold**
 
-> _this is italics_ (surround words with an underscore(_))
+比如
+
+> _this is italics_ (surround words with an underscore(_))  
+
+比如
 
 > **this is bold** (surround words with two asterisks(**))
+
+比如
 
 > **_this is combination_** you can use _both italics and bold_ in the same line
 
@@ -81,4 +87,46 @@ All you have to do is to remember to indent each asterisk one space more than th
   * this is list son
   * son
 
-> 参考资料 ：https://www.markdowntutorial.com/lesson/6/
+## **7. Paragraphs**  
+
+> 通过每一行后面加上两个space，然后就是一段  
+这就是一段
+
+否则就不是一段
+
+> 注意： softbreak就是加两个space，hardbreak就是加一个空行
+
+## **8. Code**
+
+如果代码量比较少的情况，只有一行，则使用（`)反单引号包起来
+
+` int a = 10; `
+
+如果是多行的话，使用三个反引号(```),注释可以在三个反引号之后写
+
+``` java
+public static void main(Sting[] argv){
+    System.out.println("hello world!");
+}
+
+
+```
+
+## **9. 删除**
+
+>删除线使用两个~包起来  
+~~因该删除~~
+
+## **10. Table**
+
+|name| age | sex |
+|:---:|:---:|:---:|
+|du | 20 | male|
+|yun| 20 | female|
+
+>分割线后面的冒号表示对齐方式，写在左边表示左对齐，右边为右对齐，两边都写表示居中
+
+### 参考资料
+
+> [参考资料1](https://www.markdowntutorial.com/lesson/6/)  
+[参考资料2](https://www.cnblogs.com/liugang-vip/p/6337580.html)
