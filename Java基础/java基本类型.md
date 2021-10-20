@@ -11,14 +11,9 @@ long[8]  eight bytes  -2^63 ~ 2^63-1
 字符型   char[2]  'a'
 布尔型   boolean[1]  true  false
 
+引用类型   class  interface  array
 
-
-引用类型   class  interface  array 
-
-
-
-
-不要对运算结果是小数进行判断   
+不要对运算结果是小数进行判断
 
 char 就是数字
     System.out.println('a' + 100);  出来是字符
@@ -37,8 +32,6 @@ utf-8是对unicode  大小可变的编码 字母使用1个字节 汉字使用3�
 GBK   可以表示汉字 字母一个字节  汉字2个字节
 big5 码  繁体中文
 
-
-
 boolean
 
 基本数据类型转换
@@ -56,6 +49,4 @@ char 和byte short是不能相互转换的
 
 5. boolean 不参与类型自动转换
 
-
 强制转换符号只针对最近的操作数有效 往往会使用小括号提升优先级
-
