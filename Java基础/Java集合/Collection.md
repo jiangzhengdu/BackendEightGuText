@@ -39,6 +39,29 @@ ArrayList子类的方法
 
 Iterator仅用于便利集合，Iterator本省不存放对象
 
+``` java
+    Iterator iterator = coll.iterator(); //得到一个集合的迭代器
+    while(iterator.hasNext()){  //判断是否有下一个元素
+        System.out.println(iterator.next());  //next()：1. 向下移 2. 将向下移动的集合位置上的元素返回
+
+    }
+
+```
+
+> 提示：在调用iterator.next()方法之前，必须调用it.hasNext()进行检测 如果不适用，且下一个记录无效，那么就会抛出 NoSuchElementException异常
+
+zhe
+> tips: 使用ctrl+j可以看快捷键  写迭代器的while循环的快捷键  itit
+
+### 增强for,也可以在数组上使用  快捷键 ：I
+
+``` java
+    for(Object obj ：List){
+        System.out.println(obj);
+    }
+
+```
+
 ## **Set**
 
 HashSet、TreeSet实现了Set接口
