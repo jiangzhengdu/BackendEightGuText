@@ -21,7 +21,7 @@ ArrayList LinkedList  Vector 都实现了List接口
 
 ArrayList子类的方法
 
-* add()  可以添加任何Object子类
+* add()  可以添加任何Object子类  list.add(index,Object) 可以实现在某个位置插入一个元素
 * remove() 可以删除指定元素  可以删除第n个元素、指定删除某个对象  
 * contains() 如果存在 就返回true
 * size()
@@ -61,6 +61,8 @@ zhe
     }
 
 ```
+
+? **ArrayList可以加入null，可以加入多个null，是使用数组实现的**
 
 ## **Set**
 
