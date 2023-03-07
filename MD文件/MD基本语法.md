@@ -108,8 +108,6 @@ All you have to do is to remember to indent each asterisk one space more than th
 public static void main(Sting[] argv){
     System.out.println("hello world!");
 }
-
-
 ```
 
 ## **9. 删除**

@@ -1,4 +1,4 @@
-jdk的下载
+Orcale账目密码
 ===
 
 <https://www.oracle.com/technetwork/java/javase/archive-139210.html>
@@ -6,3 +6,6 @@ jdk的下载
 账号：liwei@xiaostudy.com
 
 密码：OracleTest1234
+
+1287019365@qq.com
+Oracle@1234
