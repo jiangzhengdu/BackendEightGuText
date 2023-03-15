@@ -3,13 +3,12 @@
 ===
 
 1. 当HashMap中元素总个数达到阈值时就会扩容。注意是元素总个数，而不是数组占用个数。
-
 数组扩容阈值,即：HashMap数组总容量 * 负载因子
+
 int threshold
 如果元素个数大于阈值，扩充数组。
 if (++size > threshold)  
     resize();
-
 2. 比较复杂，当向HashMap中添加元素时，即调用
 final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict)
 方法时，如果通过hash值计算数组的索引，获取该索引位的首节点，且该首节点不为null时（即发生了Hash碰撞），会有对应三种处理情况：
@@ -23,8 +22,8 @@ if (p.hash == hash && ((k = p.key) == key || (key != null && key.equals(k))))
 
 ② 如果首节点是红黑树节点（TreeNode），将键值对添加到红黑树。
 
-// 如果首节点是红黑树的，将键值对插添加到红黑树 
-else if (p instanceof HashMap.TreeNode) 
+// 如果首节点是红黑树的，将键值对插添加到红黑树
+else if (p instanceof HashMap.TreeNode)
     e = ((HashMap.TreeNode<K,V>)p).putTreeVal(this, tab, hash, key, value);
 
 ③ 如果首节点是链表，将键值对添加到链表。添加之后会判断链表长度是否到达TREEIFY_THRESHOLD - 1这个阈值，“尝试”将链表转换成红黑树。
