@@ -63,8 +63,8 @@ remove(Object key)的作用是删除key值对应的entry，该方法的具体逻
 ``` Java
 //removeEntryForKey()
 final Entry<K,V> removeEntryForKey(Object key) {
-	......
-	int hash = (key == null) ? 0 : hash(key);
+
+    int hash = (key == null) ? 0 : hash(key);
     int i = indexFor(hash, table.length);//hash&(table.length-1)
     Entry<K,V> prev = table[i];//得到冲突链表
     Entry<K,V> e = prev;

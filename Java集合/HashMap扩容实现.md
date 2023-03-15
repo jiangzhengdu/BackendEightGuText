@@ -29,11 +29,11 @@ else if (p instanceof HashMap.TreeNode)
 ③ 如果首节点是链表，将键值对添加到链表。添加之后会判断链表长度是否到达TREEIFY_THRESHOLD - 1这个阈值，“尝试”将链表转换成红黑树。
 
 // p.next == null，到达链表末尾，添加新节点，如果长度足够，转换成树结构
-if ((e = p.next) == null) { 
+if ((e = p.next) == null) {
     p.next = newNode(hash, key, value, null);  
     if (binCount >= TREEIFY_THRESHOLD - 1) // -1 for 1st  
         treeifyBin(tab, hash);  
-    break; 
+    break;
 }
 而关键在于这个treeifyBin()方法中，如果
 // 把链表转换为红黑色树
