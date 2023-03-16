@@ -19,3 +19,18 @@ isHeldByCurrentThread(): 当前线程是否保持锁锁定，线程的执行 loc
 isLock(): 此锁是否有任意线程占用
 lockInterruptibly() : 如果当前线程未被中断，获取锁 tryLock() : 尝试获得锁，仅在调用时锁未被线程占用，获得锁
 tryLock(long timeout TimeUnit unit): 如果锁在给定等待时间内没有被另一个线程保持， 则获取该锁。
+
+ReentrantLock源码分析
+---
+
+类的继承关系
+----
+
+ReentrantLock实现了Lock接口，Lock接口中定义了lock与unlock相关操作，并且还存在newCondition方法，表示生成一个条件。
+
+类的内部类
+----
+
+ReentrantLock总共有三个内部类，并且三个内部类是紧密相关的，下面先看三个类的关系。
+
+说明: ReentrantLock类内部总共存在Sync、NonfairSync、FairSync三个类，NonfairSync与FairSync类继承自Sync类，Sync类继承自AbstractQueuedSynchronizer抽象类。下面逐个进行分析。
