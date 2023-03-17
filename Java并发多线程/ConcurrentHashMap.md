@@ -29,3 +29,12 @@ ConcurrentHashMap - JDK 1.8
 
 HashTable : 使用了synchronized关键字对put等操作进行加锁;
 ConcurrentHashMap JDK1.7: 使用分段锁机制实现;ConcurrentHashMap JDK1.8: 则使用数组+链表+红黑树数据结构和CAS原子操作实现;
+
+ConCurrentHashMap 1.8 相比 1.7的话，主要改变为：
+
+    去除 Segment + HashEntry + Unsafe 的实现，
+    改为 Synchronized + CAS + Node + Unsafe 的实现
+    其实 Node 和 HashEntry 的内容一样，但是HashEntry是一个内部类。
+    用 Synchronized + CAS 代替 Segment ，这样锁的粒度更小了，并且不是每次都要加锁了，CAS尝试失败了在加锁。
+
+    put()方法中 初始化数组大小时，1.8不用加锁，因为用了个 sizeCtl 变量，将这个变量置为-1，就表明table正在初始化。
