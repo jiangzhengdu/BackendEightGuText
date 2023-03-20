@@ -36,5 +36,6 @@ ConCurrentHashMap 1.8 相比 1.7的话，主要改变为：
     改为 Synchronized + CAS + Node + Unsafe 的实现
     其实 Node 和 HashEntry 的内容一样，但是HashEntry是一个内部类。
     用 Synchronized + CAS 代替 Segment ，这样锁的粒度更小了，并且不是每次都要加锁了，CAS尝试失败了在加锁。
+    是对树的根节点加锁
 
     put()方法中 初始化数组大小时，1.8不用加锁，因为用了个 sizeCtl 变量，将这个变量置为-1，就表明table正在初始化。

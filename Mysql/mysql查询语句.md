@@ -169,3 +169,10 @@ select id from t_book union select id from t_bookType;
 使用union all，不会去除掉重复的记录；
 
 select id from t_book union all select id from t_bookType;
+
+查询语句 on和where的区别
+---
+
+inner join 没有区别
+left join 对主表的过滤在where， 因为on的结果无论为真还是假， 主表的数据都会返回
+对从表的数据过滤在on
