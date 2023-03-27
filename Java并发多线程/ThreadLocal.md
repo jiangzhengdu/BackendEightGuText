@@ -282,3 +282,20 @@ public class DateUtils {
 
 然后我们再要用到 DateFormat 对象的地方，这样调用：
 > DateUtils.df.get().format(new Date());
+
+子线程使用父线程的ThreadLocal
+---
+
+方法1: 如果在子线程启动start方法之前就调用ThreadLocal.get()方法，就能在子线程中获取到父线程的ThreadLocal对象了。但是这个方法有个缺点，就是如果父线程中没有调用ThreadLocal.set()方法，那么子线程中调用ThreadLocal.get()方法就会返回null。
+
+方法2: 使用InheritableThreadLocal,
+为什么使用InheritableThreadLocal，子线程就可以获取到父线程的值
+
+看下InheritableThreadLocal类，InheritableThreadLocal继承了ThreadLocal类，重写了childValue,getMap,createMap方法
+
+对于getMap方法，InheritableThreadLocal中返回的是线程中的inheritableThreadLocals变量，而ThreadLocal返回的是线程中的threadLocals变量；setMap同理。再看下Thread实例化的代码,从构造函数跟进init方法，inheritThreadLocals变量是true。在init方法中，获取父线程，将父线程的inheritableThreadLocals变量赋值给子线程的inheritableThreadLocals变量，从而实现了父线程与子线程的传值
+
+InheritableThreadLocal存在的问题
+---
+
+虽然InheritableThreadLocal可以解决在子线程中获取父线程的值的问题，但是在使用线程池的情况下，由于不同的任务有可能是同一个线程处理，因此这些任务取到的值有可能并不是父线程设置的值

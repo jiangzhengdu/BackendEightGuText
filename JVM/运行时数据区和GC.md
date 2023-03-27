@@ -1,4 +1,4 @@
-jvm是由五个部分组成的
+jvm的Runtime Data Area是由五个部分组成的
 ===
 
 线程私有的

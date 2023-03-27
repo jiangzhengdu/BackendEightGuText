@@ -1,6 +1,24 @@
 ConcurrentHashMap
 ===
 
+ConcurrentHashMap的扩容机制
+---
+
+1.7版本的时候，concurrentHashMap是基于Segement，
+每个Segement是一个小的hashTable
+Segement内部扩容，和hashmap扩容类似
+生成新的数组 然后转移数组
+扩容是看segement内部进行判断的
+
+1.8的时候，不基于Segement了
+当某个线程进行put操作的时候，先看是否concurrenthashmap在扩容，如果在就一起扩容
+当某个线程发现没有进行扩容的时候，put操作的时候，会先进行CAS操作，如果成功了，就不会进行扩容了
+如果CAS失败了，就会进行扩容，扩容的时候，会将所有的数据都放到一个数组里面，然后进行扩容
+ConcurrentHashMap是支持多线程同时扩容的
+扩容也是先生成一个新的数组，然后将旧的数组的数据转移到新的数组里面
+在转移的时候，如果发现是链表的话，就直接转移，如果是红黑树的话，就会转移成链表
+每个线程负责一组或者多组的元素转移工作
+
 ConcurrentHashMap - JDK 1.7
 ----
 
