@@ -286,9 +286,9 @@ public class DateUtils {
 子线程使用父线程的ThreadLocal
 ---
 
-方法1: 如果在子线程启动start方法之前就调用ThreadLocal.get()方法，就能在子线程中获取到父线程的ThreadLocal对象了。但是这个方法有个缺点，就是如果父线程中没有调用ThreadLocal.set()方法，那么子线程中调用ThreadLocal.get()方法就会返回null。
+* 方法1: 如果在子线程启动start方法之前就调用ThreadLocal.get()方法，就能在子线程中获取到父线程的ThreadLocal对象了。但是这个方法有个缺点，就是如果父线程中没有调用ThreadLocal.set()方法，那么子线程中调用ThreadLocal.get()方法就会返回null。
 
-方法2: 使用InheritableThreadLocal,
+* 方法2: 使用InheritableThreadLocal,
 为什么使用InheritableThreadLocal，子线程就可以获取到父线程的值
 
 看下InheritableThreadLocal类，InheritableThreadLocal继承了ThreadLocal类，重写了childValue,getMap,createMap方法

@@ -146,17 +146,16 @@ LFU 全称是 Least Frequently Used 翻译为最近最不常用的，LFU 算法�
 Redis 是如何实现 LFU 算法的？
 ---
 
-LFU 算法相比于 LRU 算法的实现，多记录了「数据的访问频次」的信息。Redis 对象的结构如下
+LFU 算法相比于 LRU 算法的实现，多记录了「数据的访问频次」的信息。Redis 对象的结构如下：
 
-``` c
+```c
+
 typedef struct redisObject {
     ...
-      
     // 24 bits，用于记录对象的访问信息
     unsigned lru:24;  
     ...
 } robj;
-
 ```
 
 Redis 对象头中的 lru 字段，在 LRU 算法下和 LFU 算法下使用方式并不相同。
@@ -164,4 +163,3 @@ Redis 对象头中的 lru 字段，在 LRU 算法下和 LFU 算法下使用方�
 在 LRU 算法中，Redis 对象头的 24 bits 的 lru 字段是用来记录 key 的访问时间戳，因此在 LRU 模式下，Redis可以根据对象头中的 lru 字段记录的值，来比较最后一次 key 的访问时间长，从而淘汰最久未被使用的 key。
 
 在 LFU 算法中，Redis对象头的 24 bits 的 lru 字段被分成两段来存储，高 16bit 存储 ldt(Last Decrement Time)，用来记录 key 的访问时间戳；低 8bit 存储 logc(Logistic Counter)，用来记录 key 的访问频次。
-

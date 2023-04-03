@@ -5,17 +5,20 @@ Hashmap的遍历
 ---
 
 ```java
-HashMap<Integer,Integer> map = new HashMap<Integer, Integer>();
-
+    HashMap<Integer,Integer> map = new HashMap<Integer, Integer>();
+    map.put(1, 2);
+    map.put(2, 2);
     for(Integer i:map.keySet()){
-        System.out.println("key="+i+" value="+map.get(i));
+        System.out.println("key =" + i + "value = "+map.get(i));
     }
+    Iterator<Map.Entry<Integer, Integer>> iterator1 = map.entrySet().iterator();
+    while(iterator1.hasNext()){
+        Map.Entry<Integer, Integer> entry = iterator1.next();
 
-    Iterator iterator1=map.entrySet().iterator();
-  while(iterator1.hasNext()){
-      int key=(int)iterator1.next();
-      int value=(int)map.get(key);
-  }
+        System.out.println("key=" + entry.getKey() + " value=" + entry.getValue());
+        iterator1.remove();
+    }
+  
 ```
 
 ```java
